@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Eta | Beta Sigma Psi</title>
+  <link rel="icon" href="Crest.png">
+  <meta name="description" content="Eta | Beta Sigma Psi">
+  <meta name="author" content="Beta Sigma Psi">
+  <script type="text/javascript" src="scripts.js"></script>
+</head>
+<body>
+
+  <link rel="stylesheet" href="style.css">
+  <img src="Banner.png" alt="Beta Sig Banner" style="background-size: contain; height:200px;">
+
+  <div class="topnav" style="border-color:black;">
+    <a class="active" href="home.html">Home</a>
+    <div class="dropdown">
+    <button class="dropbtn">About
+      <i class="fa fa-caret-down" style="font-size:16px;color:white"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="about.html">About Beta Sigma Psi</a>
+      <a href="officers.html">Officers</a>
+    </div>
+  </div>
+    <a href="becomeamember.html">Become A Member</a>
+    <a href="socialmedia.html">Social</a>
+    <a href="alumni.html">Alumni</a>
+  </div>
+
+
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <!--<div class="numbertext">1 / 3</div>-->
+      <img src="BetaSigSunday.png" style="width:100%;height:640px;position:center;">
+    </div>
+
+    <div class="mySlides fade">
+      <!--<div class="numbertext">2 / 3</div>-->
+      <img src="House.png" style="width:100%;height:640px;">
+    </div>
+    <div class="mySlides fade">
+      <img src="crest-pin.jpg" style="width:100%;height:640px;">
+    </div>
+    <div class="mySlides fade">
+      <img src="GreekWeek.PNG" style="width:100%;height:640px;">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br/>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+
+<script>
+function plusSlides(n){
+  clearInterval(myTimer);
+  if(n<0){
+    showSlides(slideIndex -= 1);
+  } else {
+    showSlides(slideIndex += 1);
+  }
+  if(n===-1){
+    myTimer=setInterval(function(){plusSlides(n+2)}, 4000);
+  } else {
+    myTimer=setInterval(function(){plusSlides(n+1)}, 4000);
+  }
+}
+
+function showSlides(n){
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if(n>slides.length){slideIndex = 1}
+  if(n<1){slideIndex = slides.length}
+  for(i=0; i<slides.length; i++){
+    slides[i].style.display = "none";
+  }
+  for(i=0; i<dots.length; i++){
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+var slideIndex = 1;
+var myTimer;
+
+window.addEventListener("load",function() {
+  showSlides(slideIndex);
+  myTimer = setInterval(function(){plusSides(1)}, 4000);
+})
+
+function currentSlide(n){
+  clearInterval(myTimer);
+  myTimer=setInterval(function(){plusSlides(n+1)}, 4000);
+  showSlides(slideIndex = n);
+}
+
+
+</script>
+
+</body>
+</html>
